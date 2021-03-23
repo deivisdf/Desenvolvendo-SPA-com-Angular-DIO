@@ -1,0 +1,24 @@
+<news-noticiacompleta *ngIf="not"  (fecharNoticia)="recebeFechaNoticia($event)" [valor]="not" ></news-noticiacompleta>
+<div class="content" *ngIf="gridNoticias">
+    <div  fxLayout="row wrap" fxLayoutGap="16px grid" infiniteScroll [infiniteScrollDistance]="1"
+    [infiniteScrollThrottle]="30"  (scrolled)="onScroll()"  >
+      <div fxFlex="25%" fxFlex.xs="100%"  fxFlex.sm="33%" *ngFor="let noticia of noticias">
+       
+        <mat-card  class="mat-elevation-z4"  >
+          <mat-card-header>
+            <mat-card-title style="font-size: 16px; font-weight: 800;">{{noticia.title}}</mat-card-title>
+          </mat-card-header>
+          <img mat-card-image *ngIf="!noticia.urlToImage" src="../../assets/default.jpg">
+          <img mat-card-image  [src]="noticia?.urlToImage">
+          <mat-card-content>
+            <p>
+              <!-- {{noticia.content}} -->
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="abreNoticiaCompleta(noticia)">Leia Mais...</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+    </div>

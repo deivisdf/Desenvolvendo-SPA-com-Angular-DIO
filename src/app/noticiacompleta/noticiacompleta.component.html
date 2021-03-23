@@ -1,0 +1,13 @@
+
+<div class="container">
+  <img  [src]="valor.urlToImage" >
+
+<article>
+  <h2>{{valor.title}}</h2>
+  <p> {{valor.description}}</p>
+  <a [href]="valor.url">Matéria Completa</a><br><br><br>
+  <button mat-raised-button color="primary" (click)="voltar()">Voltar</button>
+</article>
+
+</div>
+
